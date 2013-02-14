@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 13, 2013 at 06:04 AM
+-- Generation Time: Feb 14, 2013 at 03:31 AM
 -- Server version: 5.5.24-log
 -- PHP Version: 5.4.3
 
@@ -96,7 +96,17 @@ CREATE TABLE IF NOT EXISTS `spw_project_status` (
   `name` varchar(50) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Dumping data for table `spw_project_status`
+--
+
+INSERT INTO `spw_project_status` (`id`, `name`) VALUES
+(1, 'created'),
+(2, 'sent for approval'),
+(3, 'approved'),
+(4, 'rejected');
 
 -- --------------------------------------------------------
 
@@ -108,11 +118,36 @@ CREATE TABLE IF NOT EXISTS `spw_role` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
   `description` varchar(100) DEFAULT NULL,
-  `start_date` date NOT NULL,
-  `end_date` date NOT NULL,
-  `closed_requests` date NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+
+--
+-- Dumping data for table `spw_role`
+--
+
+INSERT INTO `spw_role` (`id`, `name`, `description`) VALUES
+(1, 'admin', NULL),
+(2, 'head professor', 'professor in charge of the class'),
+(3, 'professor', 'a professor can act also as a mentor'),
+(4, 'client', NULL),
+(5, 'student', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `spw_role_user`
+--
+
+CREATE TABLE IF NOT EXISTS `spw_role_user` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `role` bigint(20) unsigned NOT NULL,
+  `user` bigint(20) unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id` (`id`),
+  UNIQUE KEY `role` (`role`,`user`),
+  KEY `user` (`user`),
+  KEY `user_2` (`user`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -175,7 +210,14 @@ CREATE TABLE IF NOT EXISTS `spw_term` (
   `closed_requests` date DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `spw_term`
+--
+
+INSERT INTO `spw_term` (`id`, `name`, `description`, `start_date`, `end_date`, `closed_requests`) VALUES
+(1, 'spring 2013', NULL, '2013-01-08', '2013-03-15', '2013-01-15');
 
 -- --------------------------------------------------------
 
@@ -223,6 +265,13 @@ ALTER TABLE `spw_language_user`
 ALTER TABLE `spw_project`
   ADD CONSTRAINT `spw_project_ibfk_2` FOREIGN KEY (`delivery_term`) REFERENCES `spw_term` (`id`),
   ADD CONSTRAINT `spw_project_ibfk_1` FOREIGN KEY (`status`) REFERENCES `spw_project_status` (`id`);
+
+--
+-- Constraints for table `spw_role_user`
+--
+ALTER TABLE `spw_role_user`
+  ADD CONSTRAINT `spw_role_user_ibfk_2` FOREIGN KEY (`user`) REFERENCES `spw_user` (`id`),
+  ADD CONSTRAINT `spw_role_user_ibfk_1` FOREIGN KEY (`role`) REFERENCES `spw_role` (`id`);
 
 --
 -- Constraints for table `spw_skill_project`
