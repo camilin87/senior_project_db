@@ -43,13 +43,13 @@ the database for the senior project
 <p>
 5-Drop all the existing tables in the DB by running this very long command.<br/>
     <code>
-    echo "set foreign_key_checks=0;" > drop.sql && mysqldump -u spw_rw -p --no-data senior_project_website | grep ^DROP >> drop.sql && echo "set foreign_key_checks=1;" >> drop.sql && mysql -u spw_rw -p senior_project_website < drop.sql && rm drop.txt
+    echo "set foreign_key_checks=0;" > drop.sql && mysqldump -u spw_rw -p --no-data senior_project_website | grep ^DROP >> drop.sql && echo "set foreign_key_checks=1;" >> drop.sql && mysql -u spw_rw -p senior_project_website &#60; drop.sql && rm drop.txt
     </code>
 </p>
 
 <p>
 6- Import the newly downloaded database.<br/>
     <code>
-    mysql -p -u spw_rw senior_project_website < senior_project_website.sql  
+    mysql -p -u spw_rw senior_project_website &#60; senior_project_website.sql  
     </code>
 </p>
