@@ -300,4 +300,4 @@ ALTER TABLE `spw_user`
 
 
 --create the test1 table
-create table test1(id int);
+CREATE TABLE IF NOT EXISTS `test1` (`id` int);
