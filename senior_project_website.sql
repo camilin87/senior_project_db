@@ -24,7 +24,9 @@ SET time_zone = "+00:00";
 
 --create the test1 table
 CREATE TABLE IF NOT EXISTS `test1` (
-   `id` bigint(20)
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,  
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id` (`id`)  
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 
