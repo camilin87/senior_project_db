@@ -22,6 +22,10 @@ SET time_zone = "+00:00";
 
 -- --------------------------------------------------------
 
+--create the test1 table
+CREATE TABLE IF NOT EXISTS `test1` (`id` int);
+
+
 --
 -- Table structure for table `spw_experience`
 --
@@ -297,7 +301,3 @@ ALTER TABLE `spw_user`
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
-
---create the test1 table
-CREATE TABLE IF NOT EXISTS `test1` (`id` int);
