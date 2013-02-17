@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 14, 2013 at 03:31 AM
+-- Generation Time: Feb 17, 2013 at 04:21 PM
 -- Server version: 5.5.24-log
 -- PHP Version: 5.4.3
 
@@ -76,13 +76,32 @@ CREATE TABLE IF NOT EXISTS `spw_project` (
   `title` varchar(140) NOT NULL,
   `description` varchar(2000) NOT NULL,
   `max_students` int(11) NOT NULL,
-  `proposed_by` int(11) NOT NULL,
+  `team_leader` int(11) NOT NULL,
   `delivery_term` bigint(20) unsigned NOT NULL,
   `status` bigint(20) unsigned NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`),
   UNIQUE KEY `delivery_term` (`delivery_term`),
   KEY `status` (`status`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `spw_project_request_notification`
+--
+
+CREATE TABLE IF NOT EXISTS `spw_project_request_notification` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `from` bigint(20) unsigned NOT NULL,
+  `to` bigint(20) unsigned NOT NULL,
+  `subject` varchar(100) DEFAULT NULL,
+  `body` varchar(255) DEFAULT NULL,
+  `is_read_flag` bit(1) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id` (`id`),
+  UNIQUE KEY `to` (`to`),
+  KEY `from` (`from`,`to`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -256,43 +275,50 @@ ALTER TABLE `spw_experience`
 -- Constraints for table `spw_language_user`
 --
 ALTER TABLE `spw_language_user`
-  ADD CONSTRAINT `spw_language_user_ibfk_2` FOREIGN KEY (`user`) REFERENCES `spw_user` (`id`),
-  ADD CONSTRAINT `spw_language_user_ibfk_1` FOREIGN KEY (`language`) REFERENCES `spw_language` (`id`);
+  ADD CONSTRAINT `spw_language_user_ibfk_1` FOREIGN KEY (`language`) REFERENCES `spw_language` (`id`),
+  ADD CONSTRAINT `spw_language_user_ibfk_2` FOREIGN KEY (`user`) REFERENCES `spw_user` (`id`);
 
 --
 -- Constraints for table `spw_project`
 --
 ALTER TABLE `spw_project`
-  ADD CONSTRAINT `spw_project_ibfk_2` FOREIGN KEY (`delivery_term`) REFERENCES `spw_term` (`id`),
-  ADD CONSTRAINT `spw_project_ibfk_1` FOREIGN KEY (`status`) REFERENCES `spw_project_status` (`id`);
+  ADD CONSTRAINT `spw_project_ibfk_1` FOREIGN KEY (`status`) REFERENCES `spw_project_status` (`id`),
+  ADD CONSTRAINT `spw_project_ibfk_2` FOREIGN KEY (`delivery_term`) REFERENCES `spw_term` (`id`);
+
+--
+-- Constraints for table `spw_project_request_notification`
+--
+ALTER TABLE `spw_project_request_notification`
+  ADD CONSTRAINT `spw_project_request_notification_ibfk_1` FOREIGN KEY (`from`) REFERENCES `spw_user` (`id`),
+  ADD CONSTRAINT `spw_project_request_notification_ibfk_2` FOREIGN KEY (`to`) REFERENCES `spw_project` (`id`);
 
 --
 -- Constraints for table `spw_role_user`
 --
 ALTER TABLE `spw_role_user`
-  ADD CONSTRAINT `spw_role_user_ibfk_2` FOREIGN KEY (`user`) REFERENCES `spw_user` (`id`),
-  ADD CONSTRAINT `spw_role_user_ibfk_1` FOREIGN KEY (`role`) REFERENCES `spw_role` (`id`);
+  ADD CONSTRAINT `spw_role_user_ibfk_1` FOREIGN KEY (`role`) REFERENCES `spw_role` (`id`),
+  ADD CONSTRAINT `spw_role_user_ibfk_2` FOREIGN KEY (`user`) REFERENCES `spw_user` (`id`);
 
 --
 -- Constraints for table `spw_skill_project`
 --
 ALTER TABLE `spw_skill_project`
-  ADD CONSTRAINT `spw_skill_project_ibfk_2` FOREIGN KEY (`project`) REFERENCES `spw_project` (`id`),
-  ADD CONSTRAINT `spw_skill_project_ibfk_1` FOREIGN KEY (`skill`) REFERENCES `spw_skill` (`id`);
+  ADD CONSTRAINT `spw_skill_project_ibfk_1` FOREIGN KEY (`skill`) REFERENCES `spw_skill` (`id`),
+  ADD CONSTRAINT `spw_skill_project_ibfk_2` FOREIGN KEY (`project`) REFERENCES `spw_project` (`id`);
 
 --
 -- Constraints for table `spw_skill_user`
 --
 ALTER TABLE `spw_skill_user`
-  ADD CONSTRAINT `spw_skill_user_ibfk_2` FOREIGN KEY (`user`) REFERENCES `spw_user` (`id`),
-  ADD CONSTRAINT `spw_skill_user_ibfk_1` FOREIGN KEY (`skill`) REFERENCES `spw_skill` (`id`);
+  ADD CONSTRAINT `spw_skill_user_ibfk_1` FOREIGN KEY (`skill`) REFERENCES `spw_skill` (`id`),
+  ADD CONSTRAINT `spw_skill_user_ibfk_2` FOREIGN KEY (`user`) REFERENCES `spw_user` (`id`);
 
 --
 -- Constraints for table `spw_user`
 --
 ALTER TABLE `spw_user`
-  ADD CONSTRAINT `spw_user_ibfk_2` FOREIGN KEY (`project`) REFERENCES `spw_project` (`id`),
-  ADD CONSTRAINT `spw_user_ibfk_1` FOREIGN KEY (`graduation_term`) REFERENCES `spw_term` (`id`);
+  ADD CONSTRAINT `spw_user_ibfk_1` FOREIGN KEY (`graduation_term`) REFERENCES `spw_term` (`id`),
+  ADD CONSTRAINT `spw_user_ibfk_2` FOREIGN KEY (`project`) REFERENCES `spw_project` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
