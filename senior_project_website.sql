@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 19, 2013 at 04:21 PM
+-- Generation Time: Feb 19, 2013 at 07:14 PM
 -- Server version: 5.5.24-log
 -- PHP Version: 5.4.3
 
@@ -277,7 +277,7 @@ CREATE TABLE IF NOT EXISTS `spw_term` (
   `closed_requests` date DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `spw_term`
@@ -287,7 +287,9 @@ INSERT INTO `spw_term` (`id`, `name`, `description`, `start_date`, `end_date`, `
 (1, 'spring 2013', 'spring 2013', '2013-01-08', '2013-03-15', '2013-01-15'),
 (2, 'fall 2013', 'fall 2013', '2013-08-26', '2013-12-13', '2013-09-02'),
 (3, 'spring 2014', 'spring 2014', '2013-01-07', '2013-04-19', '2013-01-14'),
-(4, 'fall 2014', 'fall 2014', '2014-08-25', '2014-12-09', '2014-09-01');
+(4, 'fall 2014', 'fall 2014', '2014-08-25', '2014-12-09', '2014-09-01'),
+(5, 'fall 2012', 'fall 2012', '2012-08-20', '2012-12-14', '2012-08-27'),
+(6, 'spring 2012', 'spring 2012', '2012-01-09', '2012-04-13', '2012-01-16');
 
 -- --------------------------------------------------------
 
