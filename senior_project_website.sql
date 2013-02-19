@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 17, 2013 at 04:21 PM
+-- Generation Time: Feb 19, 2013 at 04:21 PM
 -- Server version: 5.5.24-log
 -- PHP Version: 5.4.3
 
@@ -181,7 +181,55 @@ CREATE TABLE IF NOT EXISTS `spw_skill` (
   `website_active` bit(1) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=46 ;
+
+--
+-- Dumping data for table `spw_skill`
+--
+
+INSERT INTO `spw_skill` (`id`, `name`, `website_active`) VALUES
+(1, 'C#', b'1'),
+(2, 'C# 2.0/3.5', b'1'),
+(3, 'C# 3.0', b'1'),
+(4, 'C# 2.0', b'1'),
+(5, 'C# 4.0', b'1'),
+(6, 'Visual C#', b'1'),
+(8, 'F#', b'1'),
+(9, 'GNU/Linux', b'1'),
+(10, 'C', b'1'),
+(11, 'C++', b'1'),
+(12, 'Java', b'1'),
+(13, 'JavaServlets', b'1'),
+(14, 'JavaScript', b'1'),
+(15, 'jQuery', b'1'),
+(16, '.NET', b'1'),
+(17, '.NET CLR', b'1'),
+(18, 'SQL', b'1'),
+(19, 'Oracle', b'1'),
+(20, 'MySQL', b'1'),
+(21, 'Visual Studio', b'1'),
+(23, 'XMLHTTP', b'1'),
+(24, 'XML', b'1'),
+(25, 'XSLT', b'1'),
+(26, 'XSL', b'1'),
+(27, 'Linux Server', b'1'),
+(28, 'AJAX', b'1'),
+(29, 'REST', b'1'),
+(30, 'Entity Framework', b'1'),
+(31, 'ADO.NET', b'1'),
+(32, 'ADO', b'1'),
+(33, 'PHP', b'1'),
+(34, 'PHP 4/5', b'1'),
+(35, 'PHPNuke', b'1'),
+(36, 'phpMyAdmin', b'1'),
+(37, 'HTML', b'1'),
+(38, 'HTML 5', b'1'),
+(39, 'Ruby', b'1'),
+(40, 'Python', b'1'),
+(41, 'NoSQL', b'1'),
+(42, 'NetBeans', b'1'),
+(43, 'Eclipse', b'1'),
+(44, 'iOS', b'1');
 
 -- --------------------------------------------------------
 
@@ -229,14 +277,17 @@ CREATE TABLE IF NOT EXISTS `spw_term` (
   `closed_requests` date DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `spw_term`
 --
 
 INSERT INTO `spw_term` (`id`, `name`, `description`, `start_date`, `end_date`, `closed_requests`) VALUES
-(1, 'spring 2013', NULL, '2013-01-08', '2013-03-15', '2013-01-15');
+(1, 'spring 2013', 'spring 2013', '2013-01-08', '2013-03-15', '2013-01-15'),
+(2, 'fall 2013', 'fall 2013', '2013-08-26', '2013-12-13', '2013-09-02'),
+(3, 'spring 2014', 'spring 2014', '2013-01-07', '2013-04-19', '2013-01-14'),
+(4, 'fall 2014', 'fall 2014', '2014-08-25', '2014-12-09', '2014-09-01');
 
 -- --------------------------------------------------------
 
