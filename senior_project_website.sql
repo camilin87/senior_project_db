@@ -81,7 +81,7 @@ CREATE TABLE IF NOT EXISTS `spw_project` (
   `status` bigint(20) unsigned NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`),
-  UNIQUE KEY `delivery_term` (`delivery_term`),
+  KEY `delivery_term` (`delivery_term`),
   KEY `status` (`status`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
@@ -125,7 +125,8 @@ INSERT INTO `spw_project_status` (`id`, `name`) VALUES
 (1, 'created'),
 (2, 'sent for approval'),
 (3, 'approved'),
-(4, 'rejected');
+(4, 'rejected'),
+(5, 'done');
 
 -- --------------------------------------------------------
 
@@ -243,7 +244,7 @@ CREATE TABLE IF NOT EXISTS `spw_skill_project` (
   `project` bigint(20) unsigned NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`),
-  UNIQUE KEY `skill` (`skill`),
+  UNIQUE KEY `skill` (`skill`,`project`),
   KEY `project` (`project`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
@@ -258,6 +259,7 @@ CREATE TABLE IF NOT EXISTS `spw_skill_user` (
   `skill` bigint(20) unsigned NOT NULL,
   `user` bigint(20) unsigned NOT NULL,
   PRIMARY KEY (`id`),
+  UNIQUE KEY `id` (`id`),
   UNIQUE KEY `skill` (`skill`,`user`),
   KEY `user` (`user`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
