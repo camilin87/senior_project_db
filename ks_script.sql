@@ -76,9 +76,9 @@ INSERT INTO `spw_skill_project` (`id`, `skill`, `project`) VALUES
 --
 
 INSERT INTO `spw_user` (`id`,`first_name`,`last_name`,`email`,`picture`,`hash_pwd`,`summary`,`graduation_term`,`project`) VALUES
-(1, 'Alan', 'A', 'alan@gmail.com', null, 'test', null, 3, null),
+(1, 'Alan', 'A', 'alan@gmail.com', null, 'test', null, 3, 2),
 (2, 'Briam', 'B', 'briam@gmail.com', null, 'test', null, 3, null),
-(3, 'Charlie', 'C', 'charlie@gmail.com', null, 'test', null, 3, null),
+(3, 'Charlie', 'C', 'charlie@gmail.com', null, 'test', null, 3, 2),
 (4, 'Don', 'D', 'don@gmail.com', null, 'test', null, 3, null);
 
 -- --------------------------------------------------------
@@ -97,6 +97,15 @@ INSERT INTO `spw_skill_user` (`id`, `skill`, `user`) VALUES
 (8, 6, 1),
 (9, 3, 3),
 (10, 6, 3);
+
+-- --------------------------------------------------------
+--
+-- Dumping data for table `spw_role_user`
+--
+
+INSERT INTO `spw_role_user` (`id`, `role`, `user`) VALUES
+(1, 3, 3),
+(2, 5, 1);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
