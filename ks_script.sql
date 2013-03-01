@@ -29,7 +29,7 @@ INSERT INTO `spw_project` (`id`, `title`, `description`, `max_students`, `team_l
 (1, 'SPW', 'Senior Project', 3, 1, 1, 3),
 (2, 'ATT', 'ATT', 5, 1, 1, 3),
 (3, 'Verizon', 'Wireless', 5, 1, 1, 3),
-(4, 'HD', 'Home Depot', 2, 1, 1, 3),
+(4, 'HD', 'Home Depot', 2, 1, 4, 3),
 (5, 'WM', 'Walmart', 2, 1, 1, 3),
 (6, 'Net', 'Netflix', 3, 1, 1, 4),
 (7, 'Ft', 'Football', 2, 1, 3, 3),
@@ -76,10 +76,10 @@ INSERT INTO `spw_skill_project` (`id`, `skill`, `project`) VALUES
 --
 
 INSERT INTO `spw_user` (`id`,`first_name`,`last_name`,`email`,`picture`,`hash_pwd`,`summary`,`graduation_term`,`project`) VALUES
-(1, 'Alan', 'A', 'alan@gmail.com', null, 'test', null, 3, 2),
-(2, 'Briam', 'B', 'briam@gmail.com', null, 'test', null, 3, null),
-(3, 'Charlie', 'C', 'charlie@gmail.com', null, 'test', null, 3, 2),
-(4, 'Don', 'D', 'don@gmail.com', null, 'test', null, 3, null);
+(1, 'Alan', 'A', 'alan@gmail.com', null, 'a150f4d03a8df5d1400a369b4a5aa0dbd2b26600', null, 3, 2),
+(2, 'Briam', 'B', 'briam@gmail.com', null, 'a150f4d03a8df5d1400a369b4a5aa0dbd2b26600', null, 3, null),
+(3, 'Charlie', 'C', 'charlie@gmail.com', null, 'a150f4d03a8df5d1400a369b4a5aa0dbd2b26600', null, 3, 2),
+(4, 'Don', 'D', 'don@gmail.com', null, 'a150f4d03a8df5d1400a369b4a5aa0dbd2b26600', null, 4, null);
 
 -- --------------------------------------------------------
 --
@@ -106,6 +106,14 @@ INSERT INTO `spw_skill_user` (`id`, `skill`, `user`) VALUES
 INSERT INTO `spw_role_user` (`id`, `role`, `user`) VALUES
 (1, 3, 3),
 (2, 5, 1);
+
+-- --------------------------------------------------------
+--
+-- Inserting one record to the table `spw_user`
+--
+INSERT INTO `spw_user` (`id`, `first_name`, `last_name`, `email`, `picture`, `hash_pwd`, `summary`, `graduation_term`, `project`) VALUES
+(1, 'Yaneli', 'Fernandez ', 'ysosa011@fiu.edu', NULL, 'a150f4d03a8df5d1400a369b4a5aa0dbd2b26600', NULL, 1, NULL); 
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
