@@ -76,10 +76,10 @@ INSERT INTO `spw_skill_project` (`id`, `skill`, `project`) VALUES
 --
 
 INSERT INTO `spw_user` (`id`,`first_name`,`last_name`,`email`,`picture`,`hash_pwd`,`summary`,`graduation_term`,`project`) VALUES
-(1, 'Alan', 'A', 'alan@gmail.com', null, 'test', null, 3, 2),
-(2, 'Briam', 'B', 'briam@gmail.com', null, 'test', null, 3, null),
-(3, 'Charlie', 'C', 'charlie@gmail.com', null, 'test', null, 3, 2),
-(4, 'Don', 'D', 'don@gmail.com', null, 'test', null, 3, null);
+(1, 'Alan', 'A', 'alan@gmail.com', null, 'a150f4d03a8df5d1400a369b4a5aa0dbd2b26600', null, 3, 2),
+(2, 'Briam', 'B', 'briam@gmail.com', null, 'a150f4d03a8df5d1400a369b4a5aa0dbd2b26600', null, 3, null),
+(3, 'Charlie', 'C', 'charlie@gmail.com', null, 'a150f4d03a8df5d1400a369b4a5aa0dbd2b26600', null, 3, 2),
+(4, 'Don', 'D', 'don@gmail.com', null, 'a150f4d03a8df5d1400a369b4a5aa0dbd2b26600', null, 4, null);
 
 -- --------------------------------------------------------
 --
