@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 19, 2013 at 07:14 PM
+-- Generation Time: Mar 01, 2013 at 07:38 PM
 -- Server version: 5.5.24-log
 -- PHP Version: 5.4.3
 
@@ -115,7 +115,7 @@ CREATE TABLE IF NOT EXISTS `spw_project_status` (
   `name` varchar(50) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `spw_project_status`
@@ -305,18 +305,26 @@ CREATE TABLE IF NOT EXISTS `spw_user` (
   `last_name` varchar(50) NOT NULL,
   `email` varchar(100) NOT NULL,
   `picture` varchar(100) DEFAULT NULL,
-  `hash_pwd` varchar(250) NOT NULL,
+  `hash_pwd` varchar(250) DEFAULT NULL,
   `summary` varchar(2000) DEFAULT NULL,
   `graduation_term` bigint(20) unsigned DEFAULT NULL,
   `project` bigint(20) unsigned DEFAULT NULL,
+  `google_id` bigint(20) DEFAULT NULL,
+  `linkedin_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`),
   KEY `graduation_term` (`graduation_term`),
   KEY `graduation_term_2` (`graduation_term`),
   KEY `project` (`project`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
--- --------------------------------------------------------
+--
+-- Dumping data for table `spw_user`
+--
+
+INSERT INTO `spw_user` (`id`, `first_name`, `last_name`, `email`, `picture`, `hash_pwd`, `summary`, `graduation_term`, `project`, `google_id`, `linkedin_id`) VALUES
+(1, '', '', 'ysosa011@fiu.edu', NULL, 'c39f26d6f9cd1ff11a1ece039d40473e9d2a9735', NULL, NULL, NULL, NULL, NULL);
+
 --
 -- Constraints for dumped tables
 --
