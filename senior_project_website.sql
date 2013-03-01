@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 01, 2013 at 07:38 PM
+-- Generation Time: Mar 01, 2013 at 11:15 PM
 -- Server version: 5.5.24-log
 -- PHP Version: 5.4.3
 
@@ -309,14 +309,14 @@ CREATE TABLE IF NOT EXISTS `spw_user` (
   `summary` varchar(2000) DEFAULT NULL,
   `graduation_term` bigint(20) unsigned DEFAULT NULL,
   `project` bigint(20) unsigned DEFAULT NULL,
-  `google_id` bigint(20) DEFAULT NULL,
-  `linkedin_id` int(11) DEFAULT NULL,
+  `google_id` decimal(30,0) DEFAULT NULL,
+  `linkedin_id` decimal(30,0) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`),
   KEY `graduation_term` (`graduation_term`),
   KEY `graduation_term_2` (`graduation_term`),
   KEY `project` (`project`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
 
 --
 -- Dumping data for table `spw_user`
