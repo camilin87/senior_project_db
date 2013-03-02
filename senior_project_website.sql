@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 01, 2013 at 07:38 PM
+-- Generation Time: Mar 02, 2013 at 06:45 PM
 -- Server version: 5.5.24-log
 -- PHP Version: 5.4.3
 
@@ -64,6 +64,22 @@ CREATE TABLE IF NOT EXISTS `spw_language_user` (
   UNIQUE KEY `language` (`language`,`user`),
   KEY `user` (`user`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `spw_mentor_project`
+--
+
+CREATE TABLE IF NOT EXISTS `spw_mentor_project` (
+  `id` int(11) NOT NULL,
+  `mentor` bigint(20) unsigned NOT NULL,
+  `project` bigint(20) unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id` (`id`),
+  UNIQUE KEY `mentor` (`mentor`,`project`),
+  KEY `project` (`project`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -307,7 +323,10 @@ CREATE TABLE IF NOT EXISTS `spw_user` (
   `email` varchar(100) NOT NULL,
   `picture` varchar(100) DEFAULT NULL,
   `hash_pwd` varchar(250) DEFAULT NULL,
-  `summary` varchar(2000) DEFAULT NULL,
+  `summary_spw` varchar(1000) NOT NULL,
+  `headline_linkedIn` varchar(100) NOT NULL,
+  `summary_linkedIn` varchar(2000) DEFAULT NULL,
+  `positions_linkedIn` text NOT NULL,
   `graduation_term` bigint(20) unsigned DEFAULT NULL,
   `project` bigint(20) unsigned DEFAULT NULL,
   `google_id` decimal(30,0) DEFAULT NULL,
@@ -326,24 +345,8 @@ CREATE TABLE IF NOT EXISTS `spw_user` (
 -- Dumping data for table `spw_user`
 --
 
-INSERT INTO `spw_user` (`id`, `first_name`, `last_name`, `email`, `picture`, `hash_pwd`, `summary`, `graduation_term`, `project`, `google_id`, `linkedin_id`) VALUES
-(1, '', '', 'ysosa011@fiu.edu', NULL, 'c39f26d6f9cd1ff11a1ece039d40473e9d2a9735', NULL, NULL, NULL, NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `spw_mentor_project`
---
-
-CREATE TABLE IF NOT EXISTS `spw_mentor_project` (
-  `id` int(11) NOT NULL,
-  `mentor` bigint(20) unsigned NOT NULL,
-  `project` bigint(20) unsigned NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `id` (`id`),
-  UNIQUE KEY `mentor` (`mentor`,`project`),
-  KEY `project` (`project`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+INSERT INTO `spw_user` (`id`, `first_name`, `last_name`, `email`, `picture`, `hash_pwd`, `summary_spw`, `headline_linkedIn`, `summary_linkedIn`, `positions_linkedIn`, `graduation_term`, `project`, `google_id`, `linkedin_id`) VALUES
+(1, '', '', 'ysosa011@fiu.edu', NULL, 'c39f26d6f9cd1ff11a1ece039d40473e9d2a9735', '', '', NULL, '', NULL, NULL, NULL, NULL);
 
 --
 -- Constraints for dumped tables
@@ -361,6 +364,13 @@ ALTER TABLE `spw_experience`
 ALTER TABLE `spw_language_user`
   ADD CONSTRAINT `spw_language_user_ibfk_1` FOREIGN KEY (`language`) REFERENCES `spw_language` (`id`),
   ADD CONSTRAINT `spw_language_user_ibfk_2` FOREIGN KEY (`user`) REFERENCES `spw_user` (`id`);
+
+--
+-- Constraints for table `spw_mentor_project`
+--
+ALTER TABLE `spw_mentor_project`
+  ADD CONSTRAINT `spw_mentor_project_ibfk_1` FOREIGN KEY (`mentor`) REFERENCES `spw_user` (`id`),
+  ADD CONSTRAINT `spw_mentor_project_ibfk_2` FOREIGN KEY (`project`) REFERENCES `spw_project` (`id`);
 
 --
 -- Constraints for table `spw_project`
@@ -404,14 +414,6 @@ ALTER TABLE `spw_skill_user`
 ALTER TABLE `spw_user`
   ADD CONSTRAINT `spw_user_ibfk_1` FOREIGN KEY (`graduation_term`) REFERENCES `spw_term` (`id`),
   ADD CONSTRAINT `spw_user_ibfk_2` FOREIGN KEY (`project`) REFERENCES `spw_project` (`id`);
-
---
--- Constraints for table `spw_mentor_project`
---
-ALTER TABLE `spw_mentor_project`
-  ADD CONSTRAINT `spw_mentor_project_ibfk_1` FOREIGN KEY (`mentor`) REFERENCES `spw_user` (`id`),
-  ADD CONSTRAINT `spw_mentor_project_ibfk_2` FOREIGN KEY (`project`) REFERENCES `spw_project` (`id`);
-
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
