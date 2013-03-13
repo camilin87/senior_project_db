@@ -22,6 +22,22 @@ SET time_zone = "+00:00";
 
 -- --------------------------------------------------------
 --
+-- Dumping data for table `spw_user`
+--
+
+INSERT INTO `spw_user` (`id`, `first_name`, `last_name`, `email`, `picture`, `hash_pwd`, `summary_spw`, `headline_linkedIn`, `summary_linkedIn`, `positions_linkedIn`, `graduation_term`, `project`, `google_id`, `linkedin_id`, `facebook_id`) VALUES
+(1, 'Alan', 'A', 'alan@gmail.com', null, 'a150f4d03a8df5d1400a369b4a5aa0dbd2b26600',        null, '', NULL, '', 3, 	null, null, null, null),
+(2, 'Briam', 'B', 'briam@gmail.com', null, 'a150f4d03a8df5d1400a369b4a5aa0dbd2b26600',      null, '', null, '', NULL, null, null, null, null),
+(3, 'Charlie', 'C', 'charlie@gmail.com', null, 'a150f4d03a8df5d1400a369b4a5aa0dbd2b26600',  null, '', null, '', NULL, NULL, null, null, null),
+(4, 'Don', 'D', 'don@gmail.com', null, 'a150f4d03a8df5d1400a369b4a5aa0dbd2b26600',          null, '', null,'', 4, null, null, null, null),
+(5, 'Anthony', 'A', 'anthony@gmail.com', null, 'a150f4d03a8df5d1400a369b4a5aa0dbd2b26600',  null, '', NULL, '', 4, 	null, null, null, null),
+(6, 'Peter', 'P', 'peter@gmail.com', null, 'a150f4d03a8df5d1400a369b4a5aa0dbd2b26600',      null, '', NULL, '', 3, 	null, null, null, null),
+(7, 'Katia', 'K', 'katia@gmail.com', null, 'a150f4d03a8df5d1400a369b4a5aa0dbd2b26600',      null, '', NULL, '', 4, 	null, null, null, null),
+(8, 'Richard', 'R', 'richard@gmail.com', null, 'a150f4d03a8df5d1400a369b4a5aa0dbd2b26600',  null, '', NULL, '', 4, 	null, null, null, null);
+-- --------------------------------------------------------
+
+-- --------------------------------------------------------
+--
 -- Dumping data for table `spw_project`
 --
 
@@ -34,6 +50,31 @@ INSERT INTO `spw_project` (`id`, `title`, `description`, `max_students`, `propos
 (6, 'Net', 'Netflix', 3, 3, 3, 4),
 (7, 'Ft', 'Football', 2, 3, 4, 3),
 (8, 'Bk', 'Basketball', 4, 3, 6, 3);
+
+-- --------------------------------------------------------
+--
+-- Updating data for table `spw_user`
+--
+
+UPDATE spw_user
+SET project = 2
+WHERE id = 1;
+
+UPDATE spw_user
+SET project = 4
+WHERE id = 5;
+
+UPDATE spw_user
+SET project = 2
+WHERE id = 6;
+
+UPDATE spw_user
+SET project = 4
+WHERE id = 7;
+
+UPDATE spw_user
+SET project = 4
+WHERE id = 8;
 
 -- --------------------------------------------------------
 --
@@ -70,21 +111,7 @@ INSERT INTO `spw_skill_project` (`id`, `skill`, `project`) VALUES
 (27, 6, 1),
 (28, 5, 3);
 
--- --------------------------------------------------------
---
--- Dumping data for table `spw_user`
---
-
-INSERT INTO `spw_user` (`id`, `first_name`, `last_name`, `email`, `picture`, `hash_pwd`, `summary_spw`, `headline_linkedIn`, `summary_linkedIn`, `positions_linkedIn`, `graduation_term`, `project`, `google_id`, `linkedin_id`) VALUES
-(1, 'Alan', 'A', 'alan@gmail.com', null, 'a150f4d03a8df5d1400a369b4a5aa0dbd2b26600',        null, '', NULL, '', 3, 	2, null, null),
-(2, 'Briam', 'B', 'briam@gmail.com', null, 'a150f4d03a8df5d1400a369b4a5aa0dbd2b26600',      null, '', null, '', NULL, null, null, null),
-(3, 'Charlie', 'C', 'charlie@gmail.com', null, 'a150f4d03a8df5d1400a369b4a5aa0dbd2b26600',  null, '', null, '', NULL, NULL, null, null),
-(4, 'Don', 'D', 'don@gmail.com', null, 'a150f4d03a8df5d1400a369b4a5aa0dbd2b26600',          null, '', null,'', 4, null, null, null),
-(5, 'Anthony', 'A', 'anthony@gmail.com', null, 'a150f4d03a8df5d1400a369b4a5aa0dbd2b26600',  null, '', NULL, '', 4, 	4, null, null),
-(6, 'Peter', 'P', 'peter@gmail.com', null, 'a150f4d03a8df5d1400a369b4a5aa0dbd2b26600',      null, '', NULL, '', 3, 	2, null, null),
-(7, 'Katia', 'K', 'katia@gmail.com', null, 'a150f4d03a8df5d1400a369b4a5aa0dbd2b26600',      null, '', NULL, '', 4, 	4, null, null),
-(8, 'Richard', 'R', 'richard@gmail.com', null, 'a150f4d03a8df5d1400a369b4a5aa0dbd2b26600',  null, '', NULL, '', 4, 	4, null, null);
--- --------------------------------------------------------
+-- ---------------------------------------------------------
 --
 -- Dumping data for table `spw_skill_user`
 --
