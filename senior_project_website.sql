@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 12, 2013 at 05:05 PM
+-- Generation Time: Mar 14, 2013 at 06:12 PM
 -- Server version: 5.5.24-log
 -- PHP Version: 5.4.3
 
@@ -111,14 +111,15 @@ CREATE TABLE IF NOT EXISTS `spw_project` (
 CREATE TABLE IF NOT EXISTS `spw_project_request_notification` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `from` bigint(20) unsigned NOT NULL,
-  `to` bigint(20) unsigned NOT NULL,
+  `to_project` bigint(20) unsigned NOT NULL,
+  `to_user` bigint(20) unsigned NOT NULL,
   `subject` varchar(100) DEFAULT NULL,
   `body` varchar(255) DEFAULT NULL,
   `is_read_flag` bit(1) NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `id` (`id`),
-  UNIQUE KEY `to` (`to`),
-  KEY `from` (`from`,`to`)
+  UNIQUE KEY `from` (`from`),
+  UNIQUE KEY `to_project` (`to_project`),
+  UNIQUE KEY `to_user` (`to_user`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -330,17 +331,16 @@ CREATE TABLE IF NOT EXISTS `spw_user` (
   `graduation_term` bigint(20) unsigned DEFAULT NULL,
   `project` bigint(20) unsigned DEFAULT NULL,
   `google_id` decimal(30,0) DEFAULT NULL,
-  `linkedin_id` decimal(30,0) DEFAULT NULL,
-  `facebook_id` decimal(30,0) DEFAULT NULL,
+  `linkedin_id` varchar(30) DEFAULT NULL,
+  `facebook_id` bigint(30) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`),
-  UNIQUE KEY `email` (`email`),
   UNIQUE KEY `google_id` (`google_id`),
   UNIQUE KEY `linkedin_id` (`linkedin_id`),
   KEY `graduation_term` (`graduation_term`),
   KEY `graduation_term_2` (`graduation_term`),
   KEY `project` (`project`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=34 ;
 
 --
 -- Constraints for dumped tables
@@ -378,8 +378,9 @@ ALTER TABLE `spw_project`
 -- Constraints for table `spw_project_request_notification`
 --
 ALTER TABLE `spw_project_request_notification`
+  ADD CONSTRAINT `spw_project_request_notification_ibfk_3` FOREIGN KEY (`to_user`) REFERENCES `spw_user` (`id`),
   ADD CONSTRAINT `spw_project_request_notification_ibfk_1` FOREIGN KEY (`from`) REFERENCES `spw_user` (`id`),
-  ADD CONSTRAINT `spw_project_request_notification_ibfk_2` FOREIGN KEY (`to`) REFERENCES `spw_project` (`id`);
+  ADD CONSTRAINT `spw_project_request_notification_ibfk_2` FOREIGN KEY (`to_project`) REFERENCES `spw_project` (`id`);
 
 --
 -- Constraints for table `spw_role_user`
