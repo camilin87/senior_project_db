@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 14, 2013 at 06:12 PM
+-- Generation Time: Mar 16, 2013 at 11:08 PM
 -- Server version: 5.5.24-log
 -- PHP Version: 5.4.3
 
@@ -47,7 +47,22 @@ CREATE TABLE IF NOT EXISTS `spw_language` (
   `name` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+
+--
+-- Dumping data for table `spw_language`
+--
+
+INSERT INTO `spw_language` (`id`, `name`) VALUES
+(1, 'English'),
+(2, 'Spanish'),
+(3, 'French'),
+(4, 'Chinese'),
+(5, 'Dutch'),
+(6, 'Italian'),
+(7, 'Mandarin'),
+(8, 'Portuguese'),
+(9, 'Russian');
 
 -- --------------------------------------------------------
 
@@ -200,7 +215,7 @@ CREATE TABLE IF NOT EXISTS `spw_skill` (
   `website_active` bit(1) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=45 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=46 ;
 
 --
 -- Dumping data for table `spw_skill`
@@ -248,7 +263,8 @@ INSERT INTO `spw_skill` (`id`, `name`, `website_active`) VALUES
 (41, 'NoSQL', b'1'),
 (42, 'NetBeans', b'1'),
 (43, 'Eclipse', b'1'),
-(44, 'iOS', b'1');
+(44, 'iOS', b'1'),
+(45, 'RESTful WebServices', b'0');
 
 -- --------------------------------------------------------
 
@@ -273,14 +289,14 @@ CREATE TABLE IF NOT EXISTS `spw_skill_project` (
 --
 
 CREATE TABLE IF NOT EXISTS `spw_skill_user` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `skill` bigint(20) unsigned NOT NULL,
   `user` bigint(20) unsigned NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`),
   UNIQUE KEY `skill` (`skill`,`user`),
   KEY `user` (`user`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=35 ;
 
 -- --------------------------------------------------------
 
@@ -340,7 +356,14 @@ CREATE TABLE IF NOT EXISTS `spw_user` (
   KEY `graduation_term` (`graduation_term`),
   KEY `graduation_term_2` (`graduation_term`),
   KEY `project` (`project`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=34 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=51 ;
+
+--
+-- Dumping data for table `spw_user`
+--
+
+INSERT INTO `spw_user` (`id`, `first_name`, `last_name`, `email`, `picture`, `hash_pwd`, `summary_spw`, `headline_linkedIn`, `summary_linkedIn`, `positions_linkedIn`, `graduation_term`, `project`, `google_id`, `linkedin_id`, `facebook_id`) VALUES
+(50, 'Yaneli', 'Fernandez Sosa', 'yaneli86@gmail.com', NULL, NULL, '', '', NULL, '', NULL, NULL, NULL, '5cXR60iDnu', NULL);
 
 --
 -- Constraints for dumped tables
@@ -378,9 +401,9 @@ ALTER TABLE `spw_project`
 -- Constraints for table `spw_project_request_notification`
 --
 ALTER TABLE `spw_project_request_notification`
-  ADD CONSTRAINT `spw_project_request_notification_ibfk_3` FOREIGN KEY (`to_user`) REFERENCES `spw_user` (`id`),
   ADD CONSTRAINT `spw_project_request_notification_ibfk_1` FOREIGN KEY (`from`) REFERENCES `spw_user` (`id`),
-  ADD CONSTRAINT `spw_project_request_notification_ibfk_2` FOREIGN KEY (`to_project`) REFERENCES `spw_project` (`id`);
+  ADD CONSTRAINT `spw_project_request_notification_ibfk_2` FOREIGN KEY (`to_project`) REFERENCES `spw_project` (`id`),
+  ADD CONSTRAINT `spw_project_request_notification_ibfk_3` FOREIGN KEY (`to_user`) REFERENCES `spw_user` (`id`);
 
 --
 -- Constraints for table `spw_role_user`
