@@ -160,7 +160,15 @@ INSERT INTO `spw_mentor_project` (`id`, `mentor`, `project`) VALUES
 (1, 2, 2),
 (2, 2, 3),
 (3, 2, 6),
-(4, 3, 2);
+(4, 3, 2),
+(5, 3, 1),
+(6, 3, 4),
+(7, 3, 5),
+(8, 3, 6),
+(9, 3, 7),
+(10, 3, 8);
+
+
 
 -- -------------------------------------------------------
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
