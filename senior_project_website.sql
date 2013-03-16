@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 16, 2013 at 11:08 PM
+-- Generation Time: Mar 16, 2013 at 11:58 PM
 -- Server version: 5.5.24-log
 -- PHP Version: 5.4.3
 
@@ -28,9 +28,13 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `spw_experience` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `title` varchar(250) NOT NULL,
-  `description` varchar(500) DEFAULT NULL,
   `user` bigint(20) unsigned NOT NULL,
+  `company_name` varchar(100) DEFAULT NULL,
+  `company_industry` varchar(100) DEFAULT NULL,
+  `start_date` date DEFAULT NULL,
+  `end_date` date DEFAULT NULL,
+  `title` varchar(250) DEFAULT NULL,
+  `summary` text,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`),
   UNIQUE KEY `user` (`user`)
@@ -78,7 +82,7 @@ CREATE TABLE IF NOT EXISTS `spw_language_user` (
   UNIQUE KEY `id` (`id`),
   UNIQUE KEY `language` (`language`,`user`),
   KEY `user` (`user`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 -- --------------------------------------------------------
 
@@ -296,7 +300,7 @@ CREATE TABLE IF NOT EXISTS `spw_skill_user` (
   UNIQUE KEY `id` (`id`),
   UNIQUE KEY `skill` (`skill`,`user`),
   KEY `user` (`user`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=35 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=62 ;
 
 -- --------------------------------------------------------
 
@@ -356,14 +360,7 @@ CREATE TABLE IF NOT EXISTS `spw_user` (
   KEY `graduation_term` (`graduation_term`),
   KEY `graduation_term_2` (`graduation_term`),
   KEY `project` (`project`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=51 ;
-
---
--- Dumping data for table `spw_user`
---
-
-INSERT INTO `spw_user` (`id`, `first_name`, `last_name`, `email`, `picture`, `hash_pwd`, `summary_spw`, `headline_linkedIn`, `summary_linkedIn`, `positions_linkedIn`, `graduation_term`, `project`, `google_id`, `linkedin_id`, `facebook_id`) VALUES
-(50, 'Yaneli', 'Fernandez Sosa', 'yaneli86@gmail.com', NULL, NULL, '', '', NULL, '', NULL, NULL, NULL, '5cXR60iDnu', NULL);
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=54 ;
 
 --
 -- Constraints for dumped tables
