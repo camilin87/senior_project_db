@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 16, 2013 at 11:58 PM
+-- Generation Time: Mar 17, 2013 at 01:07 AM
 -- Server version: 5.5.24-log
 -- PHP Version: 5.4.3
 
@@ -31,14 +31,14 @@ CREATE TABLE IF NOT EXISTS `spw_experience` (
   `user` bigint(20) unsigned NOT NULL,
   `company_name` varchar(100) DEFAULT NULL,
   `company_industry` varchar(100) DEFAULT NULL,
-  `start_date` date DEFAULT NULL,
-  `end_date` date DEFAULT NULL,
+  `start_date` varchar(25) DEFAULT NULL,
+  `end_date` varchar(25) DEFAULT NULL,
   `title` varchar(250) DEFAULT NULL,
   `summary` text,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`),
-  UNIQUE KEY `user` (`user`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  KEY `spw_experience_ibfk_1` (`user`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
 -- --------------------------------------------------------
 
@@ -82,7 +82,7 @@ CREATE TABLE IF NOT EXISTS `spw_language_user` (
   UNIQUE KEY `id` (`id`),
   UNIQUE KEY `language` (`language`,`user`),
   KEY `user` (`user`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
 
 -- --------------------------------------------------------
 
@@ -300,7 +300,7 @@ CREATE TABLE IF NOT EXISTS `spw_skill_user` (
   UNIQUE KEY `id` (`id`),
   UNIQUE KEY `skill` (`skill`,`user`),
   KEY `user` (`user`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=62 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=107 ;
 
 -- --------------------------------------------------------
 
@@ -360,7 +360,7 @@ CREATE TABLE IF NOT EXISTS `spw_user` (
   KEY `graduation_term` (`graduation_term`),
   KEY `graduation_term_2` (`graduation_term`),
   KEY `project` (`project`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=54 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=60 ;
 
 --
 -- Constraints for dumped tables
