@@ -324,7 +324,7 @@ CREATE TABLE IF NOT EXISTS `spw_term` (
 --
 
 INSERT INTO `spw_term` (`id`, `name`, `description`, `start_date`, `end_date`, `closed_requests`) VALUES
-(1, 'spring 2013', 'spring 2013', '2013-01-08', '2013-03-15', '2013-01-15'),
+(1, 'spring 2013', 'spring 2013', '2013-01-08', '2013-04-15', '2013-01-15'),
 (2, 'fall 2013', 'fall 2013', '2013-08-26', '2013-12-13', '2013-09-02'),
 (3, 'spring 2014', 'spring 2014', '2014-01-07', '2014-04-19', '2014-01-14'),
 (4, 'fall 2014', 'fall 2014', '2014-08-25', '2014-12-09', '2014-09-01'),
