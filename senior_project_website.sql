@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 17, 2013 at 01:07 AM
+-- Generation Time: Mar 17, 2013 at 10:13 PM
 -- Server version: 5.5.24-log
 -- PHP Version: 5.4.3
 
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `spw_experience` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`),
   KEY `spw_experience_ibfk_1` (`user`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=19 ;
 
 -- --------------------------------------------------------
 
@@ -82,7 +82,7 @@ CREATE TABLE IF NOT EXISTS `spw_language_user` (
   UNIQUE KEY `id` (`id`),
   UNIQUE KEY `language` (`language`,`user`),
   KEY `user` (`user`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=21 ;
 
 -- --------------------------------------------------------
 
@@ -103,6 +103,26 @@ CREATE TABLE IF NOT EXISTS `spw_mentor_project` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `spw_notification`
+--
+
+CREATE TABLE IF NOT EXISTS `spw_notification` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `from` bigint(20) unsigned NOT NULL,
+  `to_project` bigint(20) unsigned DEFAULT NULL,
+  `to_user` bigint(20) unsigned DEFAULT NULL,
+  `subject` varchar(100) DEFAULT NULL,
+  `body` varchar(255) DEFAULT NULL,
+  `is_read_flag` bit(1) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `from` (`from`),
+  UNIQUE KEY `to_project` (`to_project`),
+  UNIQUE KEY `to_user` (`to_user`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `spw_project`
 --
 
@@ -119,26 +139,6 @@ CREATE TABLE IF NOT EXISTS `spw_project` (
   KEY `delivery_term` (`delivery_term`),
   KEY `status` (`status`),
   KEY `proposed_by` (`proposed_by`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `spw_project_request_notification`
---
-
-CREATE TABLE IF NOT EXISTS `spw_project_request_notification` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `from` bigint(20) unsigned NOT NULL,
-  `to_project` bigint(20) unsigned NOT NULL,
-  `to_user` bigint(20) unsigned NOT NULL,
-  `subject` varchar(100) DEFAULT NULL,
-  `body` varchar(255) DEFAULT NULL,
-  `is_read_flag` bit(1) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `from` (`from`),
-  UNIQUE KEY `to_project` (`to_project`),
-  UNIQUE KEY `to_user` (`to_user`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -300,7 +300,7 @@ CREATE TABLE IF NOT EXISTS `spw_skill_user` (
   UNIQUE KEY `id` (`id`),
   UNIQUE KEY `skill` (`skill`,`user`),
   KEY `user` (`user`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=107 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=125 ;
 
 -- --------------------------------------------------------
 
@@ -360,7 +360,7 @@ CREATE TABLE IF NOT EXISTS `spw_user` (
   KEY `graduation_term` (`graduation_term`),
   KEY `graduation_term_2` (`graduation_term`),
   KEY `project` (`project`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=60 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=61 ;
 
 --
 -- Constraints for dumped tables
@@ -387,20 +387,20 @@ ALTER TABLE `spw_mentor_project`
   ADD CONSTRAINT `spw_mentor_project_ibfk_2` FOREIGN KEY (`project`) REFERENCES `spw_project` (`id`);
 
 --
+-- Constraints for table `spw_notification`
+--
+ALTER TABLE `spw_notification`
+  ADD CONSTRAINT `spw_notification_ibfk_1` FOREIGN KEY (`from`) REFERENCES `spw_user` (`id`),
+  ADD CONSTRAINT `spw_notification_ibfk_2` FOREIGN KEY (`to_project`) REFERENCES `spw_project` (`id`),
+  ADD CONSTRAINT `spw_notification_ibfk_3` FOREIGN KEY (`to_user`) REFERENCES `spw_user` (`id`);
+
+--
 -- Constraints for table `spw_project`
 --
 ALTER TABLE `spw_project`
   ADD CONSTRAINT `spw_project_ibfk_1` FOREIGN KEY (`status`) REFERENCES `spw_project_status` (`id`),
   ADD CONSTRAINT `spw_project_ibfk_2` FOREIGN KEY (`delivery_term`) REFERENCES `spw_term` (`id`),
   ADD CONSTRAINT `spw_project_ibfk_3` FOREIGN KEY (`proposed_by`) REFERENCES `spw_user` (`id`);
-
---
--- Constraints for table `spw_project_request_notification`
---
-ALTER TABLE `spw_project_request_notification`
-  ADD CONSTRAINT `spw_project_request_notification_ibfk_1` FOREIGN KEY (`from`) REFERENCES `spw_user` (`id`),
-  ADD CONSTRAINT `spw_project_request_notification_ibfk_2` FOREIGN KEY (`to_project`) REFERENCES `spw_project` (`id`),
-  ADD CONSTRAINT `spw_project_request_notification_ibfk_3` FOREIGN KEY (`to_user`) REFERENCES `spw_user` (`id`);
 
 --
 -- Constraints for table `spw_role_user`
