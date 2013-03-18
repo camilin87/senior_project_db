@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 17, 2013 at 10:13 PM
+-- Generation Time: Mar 18, 2013 at 07:17 AM
 -- Server version: 5.5.24-log
 -- PHP Version: 5.4.3
 
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `spw_experience` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`),
   KEY `spw_experience_ibfk_1` (`user`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=19 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=43 ;
 
 -- --------------------------------------------------------
 
@@ -52,21 +52,6 @@ CREATE TABLE IF NOT EXISTS `spw_language` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
-
---
--- Dumping data for table `spw_language`
---
-
-INSERT INTO `spw_language` (`id`, `name`) VALUES
-(1, 'English'),
-(2, 'Spanish'),
-(3, 'French'),
-(4, 'Chinese'),
-(5, 'Dutch'),
-(6, 'Italian'),
-(7, 'Mandarin'),
-(8, 'Portuguese'),
-(9, 'Russian');
 
 -- --------------------------------------------------------
 
@@ -82,7 +67,7 @@ CREATE TABLE IF NOT EXISTS `spw_language_user` (
   UNIQUE KEY `id` (`id`),
   UNIQUE KEY `language` (`language`,`user`),
   KEY `user` (`user`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=21 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=33 ;
 
 -- --------------------------------------------------------
 
@@ -154,17 +139,6 @@ CREATE TABLE IF NOT EXISTS `spw_project_status` (
   UNIQUE KEY `id` (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
---
--- Dumping data for table `spw_project_status`
---
-
-INSERT INTO `spw_project_status` (`id`, `name`) VALUES
-(1, 'created'),
-(2, 'sent for approval'),
-(3, 'approved'),
-(4, 'rejected'),
-(5, 'done');
-
 -- --------------------------------------------------------
 
 --
@@ -178,17 +152,6 @@ CREATE TABLE IF NOT EXISTS `spw_role` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
-
---
--- Dumping data for table `spw_role`
---
-
-INSERT INTO `spw_role` (`id`, `name`, `description`) VALUES
-(1, 'admin', NULL),
-(2, 'head professor', 'professor in charge of the class'),
-(3, 'professor', 'a professor can act also as a mentor'),
-(4, 'client', NULL),
-(5, 'student', NULL);
 
 -- --------------------------------------------------------
 
@@ -221,55 +184,6 @@ CREATE TABLE IF NOT EXISTS `spw_skill` (
   UNIQUE KEY `id` (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=46 ;
 
---
--- Dumping data for table `spw_skill`
---
-
-INSERT INTO `spw_skill` (`id`, `name`, `website_active`) VALUES
-(1, 'C#', b'1'),
-(2, 'C# 2.0/3.5', b'1'),
-(3, 'C# 3.0', b'1'),
-(4, 'C# 2.0', b'1'),
-(5, 'C# 4.0', b'1'),
-(6, 'Visual C#', b'1'),
-(8, 'F#', b'1'),
-(9, 'GNU/Linux', b'1'),
-(10, 'C', b'1'),
-(11, 'C++', b'1'),
-(12, 'Java', b'1'),
-(13, 'JavaServlets', b'1'),
-(14, 'JavaScript', b'1'),
-(15, 'jQuery', b'1'),
-(16, '.NET', b'1'),
-(17, '.NET CLR', b'1'),
-(18, 'SQL', b'1'),
-(19, 'Oracle', b'1'),
-(20, 'MySQL', b'1'),
-(21, 'Visual Studio', b'1'),
-(23, 'XMLHTTP', b'1'),
-(24, 'XML', b'1'),
-(25, 'XSLT', b'1'),
-(26, 'XSL', b'1'),
-(27, 'Linux Server', b'1'),
-(28, 'AJAX', b'1'),
-(29, 'REST', b'1'),
-(30, 'Entity Framework', b'1'),
-(31, 'ADO.NET', b'1'),
-(32, 'ADO', b'1'),
-(33, 'PHP', b'1'),
-(34, 'PHP 4/5', b'1'),
-(35, 'PHPNuke', b'1'),
-(36, 'phpMyAdmin', b'1'),
-(37, 'HTML', b'1'),
-(38, 'HTML 5', b'1'),
-(39, 'Ruby', b'1'),
-(40, 'Python', b'1'),
-(41, 'NoSQL', b'1'),
-(42, 'NetBeans', b'1'),
-(43, 'Eclipse', b'1'),
-(44, 'iOS', b'1'),
-(45, 'RESTful WebServices', b'0');
-
 -- --------------------------------------------------------
 
 --
@@ -300,7 +214,7 @@ CREATE TABLE IF NOT EXISTS `spw_skill_user` (
   UNIQUE KEY `id` (`id`),
   UNIQUE KEY `skill` (`skill`,`user`),
   KEY `user` (`user`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=125 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=179 ;
 
 -- --------------------------------------------------------
 
@@ -319,18 +233,6 @@ CREATE TABLE IF NOT EXISTS `spw_term` (
   UNIQUE KEY `id` (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
---
--- Dumping data for table `spw_term`
---
-
-INSERT INTO `spw_term` (`id`, `name`, `description`, `start_date`, `end_date`, `closed_requests`) VALUES
-(1, 'spring 2013', 'spring 2013', '2013-01-08', '2013-04-15', '2013-01-15'),
-(2, 'fall 2013', 'fall 2013', '2013-08-26', '2013-12-13', '2013-09-02'),
-(3, 'spring 2014', 'spring 2014', '2014-01-07', '2014-04-19', '2014-01-14'),
-(4, 'fall 2014', 'fall 2014', '2014-08-25', '2014-12-09', '2014-09-01'),
-(5, 'fall 2012', 'fall 2012', '2012-08-20', '2012-12-14', '2012-08-27'),
-(6, 'spring 2012', 'spring 2012', '2012-01-09', '2012-04-13', '2012-01-16');
-
 -- --------------------------------------------------------
 
 --
@@ -342,7 +244,7 @@ CREATE TABLE IF NOT EXISTS `spw_user` (
   `first_name` varchar(50) NOT NULL,
   `last_name` varchar(50) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `picture` varchar(100) DEFAULT NULL,
+  `picture` varchar(250) DEFAULT NULL,
   `hash_pwd` varchar(250) DEFAULT NULL,
   `summary_spw` varchar(1000) NOT NULL,
   `headline_linkedIn` varchar(100) NOT NULL,
@@ -360,7 +262,7 @@ CREATE TABLE IF NOT EXISTS `spw_user` (
   KEY `graduation_term` (`graduation_term`),
   KEY `graduation_term_2` (`graduation_term`),
   KEY `project` (`project`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=61 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=62 ;
 
 --
 -- Constraints for dumped tables
