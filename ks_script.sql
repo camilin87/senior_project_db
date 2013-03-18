@@ -20,9 +20,9 @@ SET time_zone = "+00:00";
 -- Database: `senior_project_website`
 --
 -- --------------------------------------------------------
----
---- Dumping data for table `spw_language`
----
+--
+-- Dumping data for table `spw_language`
+--
 
 INSERT INTO `spw_language` (`id`, `name`) VALUES
 (1, 'English'),
@@ -36,9 +36,9 @@ INSERT INTO `spw_language` (`id`, `name`) VALUES
 (9, 'Russian');
 -- --------------------------------------------------------
 
----
---- Dumping data for table `spw_project_status`
----
+--
+-- Dumping data for table `spw_project_status`
+--
 
 INSERT INTO `spw_project_status` (`id`, `name`) VALUES
 (1, 'created'),
@@ -49,9 +49,9 @@ INSERT INTO `spw_project_status` (`id`, `name`) VALUES
 
 -- --------------------------------------------------------
 
----
---- Dumping data for table `spw_role`
----
+--
+-- Dumping data for table `spw_role`
+--
 
 INSERT INTO `spw_role` (`id`, `name`, `description`) VALUES
 (1, 'admin', NULL),
@@ -61,9 +61,9 @@ INSERT INTO `spw_role` (`id`, `name`, `description`) VALUES
 (5, 'student', NULL);
 
 -- --------------------------------------------------------
----
---- Dumping data for table `spw_skill`
----
+--
+-- Dumping data for table `spw_skill`
+--
 
 INSERT INTO `spw_skill` (`id`, `name`, `website_active`) VALUES
 (1, 'C#', b'1'),
@@ -112,9 +112,9 @@ INSERT INTO `spw_skill` (`id`, `name`, `website_active`) VALUES
 
 -- --------------------------------------------------------
 
----
---- Dumping data for table `spw_term`
----
+--
+-- Dumping data for table `spw_term`
+--
 
 INSERT INTO `spw_term` (`id`, `name`, `description`, `start_date`, `end_date`, `closed_requests`) VALUES
 (1, 'spring 2013', 'spring 2013', '2013-01-08', '2013-04-15', '2013-01-15'),
