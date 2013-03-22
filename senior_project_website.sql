@@ -91,14 +91,14 @@ CREATE TABLE IF NOT EXISTS `spw_language_user` (
 --
 
 CREATE TABLE IF NOT EXISTS `spw_mentor_project` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `mentor` bigint(20) unsigned NOT NULL,
   `project` bigint(20) unsigned NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`),
   UNIQUE KEY `mentor` (`mentor`,`project`),
   KEY `project` (`project`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
 
 -- --------------------------------------------------------
 
