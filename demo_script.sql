@@ -136,7 +136,7 @@ INSERT INTO `spw_user` (`id`, `first_name`, `last_name`, `email`, `picture`, `ha
 INSERT INTO `spw_project` (`id`, `title`, `description`, `max_students`, `proposed_by`, `delivery_term`, `status`) VALUES
 (1, 'Virtual Job Fair', 'This project develops a Web site that makes it easy for FIU-SCIS students to find jobs and for potential employers to find talent', 5, 63, 1, 3),
 (5, 'Online Judge', 'This project develops a mobile application that can be quickly and easily installed on most popular mobile devices such as iPhones, Android cell phones, iPads, and other handheld devices that Senior Project judges may carry in their pockets, briefcase, etc. The judges should be able to download and install the software when they sign in at the registration desk at the Senior Projects Demo Event. They should be able to register online, login, and get their assignments. The software should allow an admin user to define how many students will be evaluated by each judge. The list of ongoing projects and the students and mentors working on the projects should be retrieved from the Senior Project Web Site project. The software should randomly make the assignments and should provide an easy way for the judges to find the individuals and enter their evaluations online.', 3, 64, 1, 3),
-(6, ' vMoodle Social', 'This project integrate Facebook with vMoodle. ', 5, 65, 1, 1);
+(6, ' vMoodle Social', 'This project integrate Facebook with vMoodle. ', 5, 65, 1, 2);
 
 
 
@@ -151,7 +151,9 @@ WHERE id = 65;
 
 INSERT INTO `spw_mentor_project` (`id`, `mentor`, `project`) VALUES
 (1, 63, 1),
-(2, 64, 5);
+(2, 64, 5),
+(3, 63, 6),
+(4, 64, 1);
 
 
 --
@@ -163,6 +165,45 @@ INSERT INTO `spw_role_user` (`id`, `role`, `user`) VALUES
 (4, 4, 64),
 (5, 5, 65);
 
+--
+-- Dumping data for table `spw_skill_user`
+--
+
+INSERT INTO `spw_skill_user` (`id`, `skill`, `user`) VALUES
+(1, 1, 64),
+(2, 24, 64),
+(3, 16, 64),
+(4, 12, 64),
+(5, 33, 64),
+(6, 18, 63),
+(7, 21, 63),
+(8, 33, 63),
+(9, 24, 63),
+(10, 1, 65),
+(11, 33, 65),
+(12, 21, 65);
+
+
+--
+-- Dumping data for table `spw_skill_project`
+--
+
+INSERT INTO `spw_skill_project` (`id`, `skill`, `project`) VALUES
+(1, 1, 1),
+(2, 24, 1),
+(3, 12, 1),
+(4, 18, 1),
+(5, 33, 1),
+(6, 16, 1),
+(7, 24, 5),
+(8, 44, 5),
+(9, 37, 5),
+(10, 9, 6),
+(11, 40, 6),
+(12, 33, 6),
+(13, 1, 6),
+(14, 21, 6),
+(15, 16, 6);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
