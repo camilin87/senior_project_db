@@ -125,7 +125,7 @@ INSERT INTO `spw_term` (`id`, `name`, `description`, `start_date`, `end_date`, `
 
 INSERT INTO `spw_user` (`id`, `first_name`, `last_name`, `email`, `picture`, `hash_pwd`, `summary_spw`, `headline_linkedIn`, `summary_linkedIn`, `positions_linkedIn`, `graduation_term`, `project`, `google_id`, `linkedin_id`, `facebook_id`) VALUES
 (63, 'Masoud', 'Sadjadi', 'johndoe@gmail.com', 'http://m.c.lnkd.licdn.com/mpr/mpr/shrink_200_200/p/2/000/00d/234/1554fd3.jpg', '6c074fa94c98638dfe3e3b74240573eb128b3d16', 'My goal with this class is to prepare my students for the real world market. This will be a tough class. ', '', NULL, '', NULL, NULL, NULL, NULL, NULL),
-(64, 'Juan ', 'Caraballo', 'juancaraballo@ibm.com', 'http://www.cis.fiu.edu/photo-gallery/d/8378-2/Juan+Caraballo.jpg', '741f9373d57d707d577e955bff933fbe2d7f0830', 'I''m from IBM. I will work hard with students to get great projects at the end of the term. ', '', NULL, '', 1, NULL, NULL, NULL, NULL),
+(64, 'Juan ', 'Caraballo', 'juancaraballo@ibm.com', 'http://www.cis.fiu.edu/photo-gallery/d/8378-2/Juan+Caraballo.jpg', '741f9373d57d707d577e955bff933fbe2d7f0830', 'I''m from IBM. I will work hard with students to get great projects at the end of the term. ', '', NULL, '', NULL, NULL, NULL, NULL, NULL),
 (65, 'Keiser ', 'Moya', 'keisermoya@yahoo.com', 'http://m.c.lnkd.licdn.com/media/p/7/000/1e8/39e/1e9388f.jpg', '542a628b047b5751d070fbd222141d8a383000e4', 'Great student!', '', NULL, '', 1, NULL, NULL, NULL, NULL);
 
 
@@ -136,7 +136,7 @@ INSERT INTO `spw_user` (`id`, `first_name`, `last_name`, `email`, `picture`, `ha
 INSERT INTO `spw_project` (`id`, `title`, `description`, `max_students`, `proposed_by`, `delivery_term`, `status`) VALUES
 (1, 'Virtual Job Fair', 'This project develops a Web site that makes it easy for FIU-SCIS students to find jobs and for potential employers to find talent', 5, 63, 1, 3),
 (5, 'Online Judge', 'This project develops a mobile application that can be quickly and easily installed on most popular mobile devices such as iPhones, Android cell phones, iPads, and other handheld devices that Senior Project judges may carry in their pockets, briefcase, etc. The judges should be able to download and install the software when they sign in at the registration desk at the Senior Projects Demo Event. They should be able to register online, login, and get their assignments. The software should allow an admin user to define how many students will be evaluated by each judge. The list of ongoing projects and the students and mentors working on the projects should be retrieved from the Senior Project Web Site project. The software should randomly make the assignments and should provide an easy way for the judges to find the individuals and enter their evaluations online.', 3, 64, 1, 3),
-(6, ' vMoodle Social', 'This project integrate Facebook with vMoodle. ', 5, 65, 1, 1);
+(6, ' vMoodle Social', 'This project integrate Facebook with vMoodle. ', 5, 65, 1, 2);
 
 
 
@@ -151,7 +151,9 @@ WHERE id = 65;
 
 INSERT INTO `spw_mentor_project` (`id`, `mentor`, `project`) VALUES
 (1, 63, 1),
-(2, 64, 5);
+(2, 64, 5),
+(3, 63, 6),
+(4, 64, 1);
 
 
 --
@@ -163,6 +165,45 @@ INSERT INTO `spw_role_user` (`id`, `role`, `user`) VALUES
 (4, 4, 64),
 (5, 5, 65);
 
+--
+-- Dumping data for table `spw_skill_user`
+--
+
+INSERT INTO `spw_skill_user` (`id`, `skill`, `user`) VALUES
+(1, 1, 64),
+(2, 24, 64),
+(3, 16, 64),
+(4, 12, 64),
+(5, 33, 64),
+(6, 18, 63),
+(7, 21, 63),
+(8, 33, 63),
+(9, 24, 63),
+(10, 1, 65),
+(11, 33, 65),
+(12, 21, 65);
+
+
+--
+-- Dumping data for table `spw_skill_project`
+--
+
+INSERT INTO `spw_skill_project` (`id`, `skill`, `project`) VALUES
+(1, 1, 1),
+(2, 24, 1),
+(3, 12, 1),
+(4, 18, 1),
+(5, 33, 1),
+(6, 16, 1),
+(7, 24, 5),
+(8, 44, 5),
+(9, 37, 5),
+(10, 9, 6),
+(11, 40, 6),
+(12, 33, 6),
+(13, 1, 6),
+(14, 21, 6),
+(15, 16, 6);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

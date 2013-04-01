@@ -76,7 +76,7 @@ CREATE TABLE IF NOT EXISTS `spw_language_user` (
 --
 
 CREATE TABLE IF NOT EXISTS `spw_mentor_project` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `mentor` bigint(20) unsigned NOT NULL,
   `project` bigint(20) unsigned NOT NULL,
   PRIMARY KEY (`id`),
@@ -208,14 +208,14 @@ CREATE TABLE IF NOT EXISTS `spw_skill_project` (
 --
 
 CREATE TABLE IF NOT EXISTS `spw_skill_user` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `skill` bigint(20) unsigned NOT NULL,
   `user` bigint(20) unsigned NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`),
   UNIQUE KEY `skill` (`skill`,`user`),
   KEY `user` (`user`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=197 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
