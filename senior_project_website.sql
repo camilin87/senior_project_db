@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 26, 2013 at 12:45 AM
+-- Generation Time: Apr 01, 2013 at 01:05 AM
 -- Server version: 5.5.24-log
 -- PHP Version: 5.4.3
 
@@ -99,11 +99,12 @@ CREATE TABLE IF NOT EXISTS `spw_notification` (
   `subject` varchar(100) DEFAULT NULL,
   `body` varchar(255) DEFAULT NULL,
   `is_read_flag` bit(1) NOT NULL,
+  `type` enum('join','leave','join_approved','join_rejected','professor_approval') NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `from` (`from`),
-  UNIQUE KEY `to_project` (`to_project`),
-  UNIQUE KEY `to_user` (`to_user`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  KEY `spw_notification_ibfk_1` (`from`),
+  KEY `spw_notification_ibfk_2` (`to_project`),
+  KEY `spw_notification_ibfk_3` (`to_user`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 -- --------------------------------------------------------
 
@@ -124,7 +125,7 @@ CREATE TABLE IF NOT EXISTS `spw_project` (
   KEY `delivery_term` (`delivery_term`),
   KEY `status` (`status`),
   KEY `proposed_by` (`proposed_by`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 -- --------------------------------------------------------
 
@@ -182,7 +183,7 @@ CREATE TABLE IF NOT EXISTS `spw_skill` (
   `website_active` bit(1) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=46 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=47 ;
 
 -- --------------------------------------------------------
 
@@ -198,7 +199,7 @@ CREATE TABLE IF NOT EXISTS `spw_skill_project` (
   UNIQUE KEY `id` (`id`),
   UNIQUE KEY `skill` (`skill`,`project`),
   KEY `project` (`project`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 -- --------------------------------------------------------
 
