@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 01, 2013 at 01:05 AM
+-- Generation Time: Apr 04, 2013 at 10:19 PM
 -- Server version: 5.5.24-log
 -- PHP Version: 5.4.3
 
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `spw_experience` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`),
   KEY `spw_experience_ibfk_1` (`user`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=51 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=67 ;
 
 -- --------------------------------------------------------
 
@@ -52,6 +52,7 @@ CREATE TABLE IF NOT EXISTS `spw_language` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+
 
 -- --------------------------------------------------------
 
@@ -67,7 +68,7 @@ CREATE TABLE IF NOT EXISTS `spw_language_user` (
   UNIQUE KEY `id` (`id`),
   UNIQUE KEY `language` (`language`,`user`),
   KEY `user` (`user`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=37 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=47 ;
 
 -- --------------------------------------------------------
 
@@ -83,7 +84,7 @@ CREATE TABLE IF NOT EXISTS `spw_mentor_project` (
   UNIQUE KEY `id` (`id`),
   UNIQUE KEY `mentor` (`mentor`,`project`),
   KEY `project` (`project`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
 -- --------------------------------------------------------
 
@@ -99,12 +100,13 @@ CREATE TABLE IF NOT EXISTS `spw_notification` (
   `subject` varchar(100) DEFAULT NULL,
   `body` varchar(255) DEFAULT NULL,
   `is_read_flag` bit(1) NOT NULL,
-  `type` enum('join','leave','join_approved','join_rejected','professor_approval') NOT NULL,
+  `type` enum('join','leave','join_approved','join_rejected','member_added','professor_approval','professor_approval_approved','professor_approval_rejected','change_project') NOT NULL,
+  `datetime` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `spw_notification_ibfk_1` (`from`),
   KEY `spw_notification_ibfk_2` (`to_project`),
   KEY `spw_notification_ibfk_3` (`to_user`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=166 ;
 
 -- --------------------------------------------------------
 
@@ -125,7 +127,8 @@ CREATE TABLE IF NOT EXISTS `spw_project` (
   KEY `delivery_term` (`delivery_term`),
   KEY `status` (`status`),
   KEY `proposed_by` (`proposed_by`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+
 
 -- --------------------------------------------------------
 
@@ -139,6 +142,7 @@ CREATE TABLE IF NOT EXISTS `spw_project_status` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+
 
 -- --------------------------------------------------------
 
@@ -169,7 +173,7 @@ CREATE TABLE IF NOT EXISTS `spw_role_user` (
   UNIQUE KEY `role` (`role`,`user`),
   KEY `user` (`user`),
   KEY `user_2` (`user`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
 
 -- --------------------------------------------------------
 
@@ -183,7 +187,7 @@ CREATE TABLE IF NOT EXISTS `spw_skill` (
   `website_active` bit(1) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=47 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=62 ;
 
 -- --------------------------------------------------------
 
@@ -199,7 +203,7 @@ CREATE TABLE IF NOT EXISTS `spw_skill_project` (
   UNIQUE KEY `id` (`id`),
   UNIQUE KEY `skill` (`skill`,`project`),
   KEY `project` (`project`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=19 ;
 
 -- --------------------------------------------------------
 
@@ -215,7 +219,7 @@ CREATE TABLE IF NOT EXISTS `spw_skill_user` (
   UNIQUE KEY `id` (`id`),
   UNIQUE KEY `skill` (`skill`,`user`),
   KEY `user` (`user`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=75 ;
 
 -- --------------------------------------------------------
 
@@ -263,7 +267,7 @@ CREATE TABLE IF NOT EXISTS `spw_user` (
   KEY `graduation_term` (`graduation_term`),
   KEY `graduation_term_2` (`graduation_term`),
   KEY `project` (`project`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=66 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=70 ;
 
 --
 -- Constraints for dumped tables
