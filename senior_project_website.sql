@@ -100,7 +100,7 @@ CREATE TABLE IF NOT EXISTS `spw_notification` (
   `subject` varchar(100) DEFAULT NULL,
   `body` varchar(255) DEFAULT NULL,
   `is_read_flag` bit(1) NOT NULL,
-  `type` enum('join','leave','join_approved','join_rejected','member_added','professor_approval','professor_approval_approved','professor_approval_rejected','change_project') NOT NULL,
+  `type` enum('join','leave','join_approved','join_rejected','member_added','professor_approval','professor_approval_approved','professor_approval_rejected','change_project','invite_project','invite_user') NOT NULL,
   `datetime` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `spw_notification_ibfk_1` (`from`),

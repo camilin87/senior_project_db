@@ -124,7 +124,7 @@ INSERT INTO `spw_term` (`id`, `name`, `description`, `start_date`, `end_date`, `
 --
 
 INSERT INTO `spw_user` (`id`, `first_name`, `last_name`, `email`, `picture`, `hash_pwd`, `summary_spw`, `headline_linkedIn`, `summary_linkedIn`, `positions_linkedIn`, `graduation_term`, `project`, `google_id`, `linkedin_id`, `facebook_id`) VALUES
-(63, 'Masoud', 'Sadjadi', 'masoud@fiu.com', 'http://m.c.lnkd.licdn.com/mpr/mpr/shrink_200_200/p/2/000/00d/234/1554fd3.jpg', '6c074fa94c98638dfe3e3b74240573eb128b3d16', 'My goal with this class is to prepare my students for the real world market. This will be a tough class. ', '', NULL, '', NULL, NULL, NULL, NULL, NULL),
+(63, 'Masoud', 'Sadjadi', 'masoud@fiu.com', 'http://m.c.lnkd.licdn.com/mpr/mpr/shrink_200_200/p/2/000/00d/234/1554fd3.jpg', 'cbfdff2e561d061d119e68c15f2f2820477eba3f', 'My goal with this class is to prepare my students for the real world market. This will be a tough class. ', '', NULL, '', NULL, NULL, NULL, NULL, NULL),
 (64, 'Juan ', 'Caraballo', 'juancaraballo@ibm.com', 'http://www.cis.fiu.edu/photo-gallery/d/8378-2/Juan+Caraballo.jpg', '741f9373d57d707d577e955bff933fbe2d7f0830', 'I''m from IBM. I will work hard with students to get great projects at the end of the term. ', '', NULL, '', NULL, NULL, NULL, NULL, NULL),
 (65, 'Keiser ', 'Moya', 'keisermoya@yahoo.com', 'http://m.c.lnkd.licdn.com/media/p/7/000/1e8/39e/1e9388f.jpg', '542a628b047b5751d070fbd222141d8a383000e4', 'Great student!', '', NULL, '', 1, NULL, NULL, NULL, NULL);
 
@@ -163,7 +163,8 @@ INSERT INTO `spw_mentor_project` (`id`, `mentor`, `project`) VALUES
 INSERT INTO `spw_role_user` (`id`, `role`, `user`) VALUES
 (1, 3, 63),
 (4, 4, 64),
-(5, 5, 65);
+(5, 5, 65),
+(6, 2, 63);
 
 --
 -- Dumping data for table `spw_skill_user`
