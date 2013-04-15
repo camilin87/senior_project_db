@@ -142,7 +142,6 @@ INSERT INTO `spw_project` (`id`, `title`, `description`, `max_students`, `propos
 (6, ' vMoodle Social', 'This project integrate Facebook with vMoodle. ', 5, 65, 1, 2);
 
 
-
 UPDATE spw_user
 SET project = 6
 WHERE id = 65;
@@ -169,10 +168,11 @@ INSERT INTO `spw_mentor_project` (`id`, `mentor`, `project`) VALUES
 --
 
 INSERT INTO `spw_role_user` (`id`, `role`, `user`) VALUES
+(6, 2, 63),
 (1, 3, 63),
 (4, 4, 64),
 (5, 5, 65),
-(6, 2, 63);
+(12, 5, 70);
 
 --
 -- Dumping data for table `spw_skill_user`
