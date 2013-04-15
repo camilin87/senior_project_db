@@ -123,10 +123,13 @@ INSERT INTO `spw_term` (`id`, `name`, `description`, `start_date`, `end_date`, `
 -- Dumping data for table `spw_user`
 --
 
+
+
 INSERT INTO `spw_user` (`id`, `first_name`, `last_name`, `email`, `picture`, `hash_pwd`, `summary_spw`, `headline_linkedIn`, `summary_linkedIn`, `positions_linkedIn`, `graduation_term`, `project`, `google_id`, `linkedin_id`, `facebook_id`) VALUES
 (63, 'Masoud', 'Sadjadi', 'masoud@fiu.com', 'http://m.c.lnkd.licdn.com/mpr/mpr/shrink_200_200/p/2/000/00d/234/1554fd3.jpg', 'cbfdff2e561d061d119e68c15f2f2820477eba3f', 'My goal with this class is to prepare my students for the real world market. This will be a tough class. ', '', NULL, '', NULL, NULL, NULL, NULL, NULL),
 (64, 'Juan ', 'Caraballo', 'juancaraballo@ibm.com', 'http://www.cis.fiu.edu/photo-gallery/d/8378-2/Juan+Caraballo.jpg', '741f9373d57d707d577e955bff933fbe2d7f0830', 'I''m from IBM. I will work hard with students to get great projects at the end of the term. ', '', NULL, '', NULL, NULL, NULL, NULL, NULL),
-(65, 'Keiser ', 'Moya', 'keisermoya@yahoo.com', 'http://m.c.lnkd.licdn.com/media/p/7/000/1e8/39e/1e9388f.jpg', '542a628b047b5751d070fbd222141d8a383000e4', 'Great student!', '', NULL, '', 1, NULL, NULL, NULL, NULL);
+(65, 'Keiser ', 'Moya', 'keisermoya@yahoo.com', 'http://m.c.lnkd.licdn.com/media/p/7/000/1e8/39e/1e9388f.jpg', '542a628b047b5751d070fbd222141d8a383000e4', 'Great student!', '', NULL, '', 1,NULL, NULL, NULL, NULL),
+(70, 'Karen', 'Fernandez', 'karenfernandez@fiu.edu', 'http://m.c.lnkd.licdn.com/mpr/mpr/shrink_200_200/p/5/000/22d/202/19edd27.jpg', '0c566738e5a91c4168641d64c3df811527599a8d', 'I am a good student. Like to work hard. I am looking forward to work on mobile applications for my Senior Project. Please email me if you are interested  in me as a team member. ', '', NULL, '', 1, NULL, NULL, NULL, NULL);
 
 
 --
@@ -143,6 +146,11 @@ INSERT INTO `spw_project` (`id`, `title`, `description`, `max_students`, `propos
 UPDATE spw_user
 SET project = 6
 WHERE id = 65;
+
+UPDATE spw_user
+SET project = 6
+WHERE id = 70;
+
 
 
 --
